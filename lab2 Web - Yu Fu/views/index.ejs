@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Ebay</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/register-login.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="/angularjs/index.js"></script>
+</head>
+<body ng-app="itemslist" ng-controller="itemslist">
+<div id="box"></div>
+
+		<% include /include/header %>
+
+<div class="logo-box">
+	<img role="presentation" width="250" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute;" alt="" src="https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" id="gh-logo">
+</div>
+
+<div class="item-box">
+	<div class="container">
+		<div class="row">
+			<%
+			if (data)
+			{
+			for(var i in data){ %>
+				<% if (data[i].quantity >0 ){ %>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="speical speical-default">
+							<div class="speical-content">
+								<h3 class="text-special-default">
+									<%= data[i].name %>
+								</h3>
+								<p class="item-hide-details">
+									<%= data[i].detail %>
+								</p>
+								<div class="text-special-price">
+									Price: $<%= data[i].price %>
+									<!-- blank space -->
+									<a>&nbsp;&nbsp;&nbsp;</a>
+									<a href="/item/<%= data[i].adid %>" class="btn btn-info">Detail</a>
+								</div>
+							</div>
+						</div>
+				</div>
+			<% 		}
+				}
+			}else{ %>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+					<div class="speical speical-default">
+						<div class="speical-content">
+							<h3 class="text-special-default">
+								No ads yet! Post yours quickly.
+							</h3>
+
+						</div>
+					</div>
+				</div>
+			<% } %>
+		</div>
+	</div>
+</div>
+
+<script>
+function redirect(id) {
+	window.location.href = '/item/'+id;
+};
+</script>
+
+</body>
+</html>

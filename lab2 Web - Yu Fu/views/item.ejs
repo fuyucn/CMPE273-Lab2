@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Ebay</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/register-login.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  	<script src="/angularjs/carts.js"></script>
+</head>
+<body ng-app="carts" ng-controller="carts">
+<div id="box"></div>
+
+  <% include /include/header %>
+
+  <div class="logo-box">
+  	<img role="presentation" width="250" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute;" alt="" src="https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" id="gh-logo">
+  </div>
+
+  <div class="item-box" style=" right:50px;" >
+    <div class="speical speical-default" style="width:80%;position: absolute;right:10%;">
+      <div class="container" style="width:100%">
+        <%
+        if (data)
+        {
+         %>
+        <h2><%= data[0].name %> </h2>
+					<% if(userid != data[0].sellerID && data[0].quantity >0){ 
+            if(data[0].bid){ 
+               if(data[0].bidtime){ 
+                 var currentTime = new Date();
+                 var fourH= 4*60*60*1000 ;
+                 var time = fourH - (currentTime - data[0].bidtime);
+                 var hour =  parseInt((time / (60*60*1000)));
+                 var min = parseInt((time % (60*60*1000))/(60*1000));
+              %>
+                  <p style="color:red"> Remaining Time: <%= hour %> hour(s):<%= min %> min(s) left. With bid price: $<%= (data[0].bid) %>
+                  <% if (data[0].biderid){ %>
+                     Highest Bider: <%= data[0].bider[0].lastname %> <%= data[0].bider[0].firstname %> 
+                  <% } %>
+                  </p>
+             <% } %>
+            <div style="float:right">
+   
+            
+              <input type="number" name="price" id="price" class="ipt"  ng-model="newbid" placeholder="Bid: $" ng-model="price" required />  
+              <button class="btn btn-success" style="float:right;" ng-click="bid(<%= data[0].adid %>,<%= data[0].bid %>);">Bid</button>
+              </br>
+
+
+
+              </div>
+           <% } %>
+					<button class="btn btn-success" style="float:right;" ng-click="addToCarts( <%= data[0].adid %>, '<%= data[0].name %>', <%= data[0].price %>, <%= data[0].sellerID %>);">Buy</button>
+          
+					<% } %>
+					<div class="text-special-price">
+						Quantity:<%= data[0].quantity %>
+					</div>
+				</h2>
+          <p>
+            <%= data[0].detail %>
+          </p>
+          <div class="text-special-price">
+            Price: $<%= data[0].price %>
+            <!-- blank space -->
+            <a>&nbsp;&nbsp;&nbsp;</a>   Seller: <a href="/profile/<%= data[0].sellerID %>"><%= data[0].seller[0].firstname %> <%= data[0].seller[0].lastname %></a> shipping from <%= data[0].location %>
+          </div>
+        <% 
+        } %>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

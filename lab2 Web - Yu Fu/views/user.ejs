@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Ebay - User</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/register-login.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="user" ng-controller="user">
+	<div id="box"></div>
+
+	<!-- header nav-->
+	<% include /include/header %>
+
+	<!-- buy history -->
+	<div class="logo-box">
+		<img role="presentation" width="250" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute;" alt="" src="https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" id="gh-logo">
+	</div>
+
+	<!-- user info -->
+  <div class="item-box">
+    <div class="container">
+      <div class="row">
+        <div class="speical-content">
+
+            <h3 class="text-special-default">Wellcome: </strong><%= uinfo.firstname %> <%= uinfo.lastname %>
+							<a href="/profile/<%= uinfo.userid %>" class="btn btn-info">Profile</a>
+							<a href="/addItem" class="btn btn-success" style="float:right;">Post Item</a>
+						</h3>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<!-- sell history -->
+  <div class="item-box" style="top:20%;width:30%;float:right;right:32%;">
+    <div class="speical speical-itembg"  >
+          <h3 class="text-special-default">
+            Sells List:
+          </h3>
+          <div class="" style="width :100%;">
+            <% for(var i in sells) { %>
+              <div class="speical speical-itemlists"  >
+              <div class="speical-content">
+							<h3 class="text-special-default">
+								<%= sells[i].name %>
+							</h3>
+							<div class="text-special-price">
+								Price: $<%= sells[i].price %>
+								<!-- blank space -->
+								<a>&nbsp;&nbsp;&nbsp;</a>
+								<a href="/item/<%= sells[i].adid %>" class="btn btn-info">Detail</a>
+							</div>
+              </div>
+                </div>
+            <% } %>
+          </div>
+  	</div>
+  </div>
+  
+	<!-- buy history -->
+    <div class="item-box" style="top:20%;width:30%;float:right;right:-32%;">
+      	<div class="speical speical-itembg">
+            <h3 class="text-special-default">
+              Buy List:
+            </h3>
+            <div class="" style="width :100%;">
+              <% for(var i in buys) { %>
+                <div class="speical speical-itemlists"  >
+                  <div class="speical-content">
+      							<h3 class="text-special-default">
+      								<%= buys[i].advertisement[0].name %>
+      							</h3>
+      							<div class="text-special-price">
+      								Price: $<%= buys[i].advertisement[0].price %>
+      								<!-- blank space -->
+      								<a>&nbsp;&nbsp;&nbsp;</a>
+      								<a href="/item/<%= buys[i].itemID %>" class="btn btn-info">Detail</a>
+      							</div>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+    		</div>
+    </div>
+
+</body>
+</html>

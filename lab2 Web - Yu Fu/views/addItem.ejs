@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ebay -- Add Item</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/register-login.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="/angularjs/additem.js"></script>
+</head>
+
+<body ng-app="additem" ng-controller="additem">
+	<div id="box"></div>
+
+	<% include /include/altheader %>
+	<div class="cent-box register-box" >
+		<div class="cent-box-header">
+			<img role="presentation" width="250" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute; top:-47px;left:95px" alt="" src="https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" id="gh-logo">
+			</br><h2 class="sub-title"></h2>
+		</div>
+
+		<div class="cont-main clearfix">
+			<div class="index-tab">
+      			</br>
+				<h2 href="/register" class="active">Post New Item</h2>
+			</div>
+			<input type="checkbox" ng-model="showBid"> Bid
+			<div class="login form">
+				<div class="group">
+					<div class="group-ipt user">
+						<form name="form" novalidate="novalidate">
+			  				<input type="text" name="name" id="name" class="ipt" placeholder="Name:" ng-model="itemName" required />
+							<input type="text" name="detail" id="detail" class="ipt" placeholder="Detail:" maxlength="240" ng-model="detail" required />
+							<input type="number" name="price" id="price" class="ipt" placeholder="Price: $" ng-model="price" required /> 
+							<input type="number" name="bid" id="bid" class="ipt" placeholder="bid: $" ng-model="bid" ng-show="showBid" required />
+			  				<input type="number" name="quantity" id="quantity" class="ipt" placeholder="Quantity: #" ng-model="quantity" required />
+			                <input type="text" name="location" id="location" class="ipt" placeholder="Location: " ng-model="loc" required />
+		                </form>
+					</div>
+				</div>
+			</div>
+			<div class="button">
+				<div class="alert alert-danger" ng-hide="invalid_add">
+						<strong>Error</strong>
+				</div>
+				<div class="alert alert-danger" ng-hide="invalid_input">
+						<strong>Must input all in form</strong>
+				</div>
+			</div>
+
+				<button type="submit" class="login-btn register-btn" id="button" ng-click="post();">Post Item</button>
+		</div>
+	</div>
+	<div class="footer">
+		<p>Ebay</p>
+		<p>EbayApp Cmpe273 Lab1</p>
+	</div>
+</body>
+</html>

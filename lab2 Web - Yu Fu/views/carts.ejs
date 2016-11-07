@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Ebay - Shopping Carts</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/register-login.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  	<script src="/angularjs/carts.js"></script>
+</head>
+<body ng-app="carts" ng-controller="carts">
+<div id="box"></div>
+
+  <% include /include/header %>
+
+  <div class="logo-box">
+  	<img role="presentation" width="250" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute;" alt="" src="https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" id="gh-logo">
+  </div>
+  <div class="item-box" style=" right:50px;width:90%" >
+    <div class="speical speical-default" style="width:80%;position: absolute;right:10%;">
+			<h3 class="text-special-default" style="color:lightblue;">
+				Shopping Carts:
+			</h3>
+      <div class="container" style="width:100%" >
+        <%
+        if (data && !empty) {
+        	for(var i in data){
+						if(data[i]!=null){%>
+
+				<div class="speical speical-itemlists" style="width:100%" >
+					<div class="speical-content" >
+		        <h3>
+		        	<%= data[i].name %>  <a href="/delFromCarts/<%= data[i].cartid %>" class="btn btn-warning" style="float:right">Delete</a>
+						</h3>
+		        <div class="text-special-price">
+			          Price: $<%= data[i].price %>
+		        </div>
+					</div>
+				</div>
+        <% }
+				} %>
+      </div>
+			<div style="width:98%;">
+				<a href="/payPage" class="btn btn-primary" style="float:right;">Checkout</a>
+			<div>
+
+			<% }else{ %>
+				<h3 class="text-special-default" style="color:lightblue;">
+					Shoppoing Cart empty.
+				</h3>
+			<%	} %>
+		</div>
+  </div>
+
+</body>
+</html>

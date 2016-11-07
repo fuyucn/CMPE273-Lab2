@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Ebay - Pay</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/register-login.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src='js/index.js' type="text/javascript"></script>
+	<script src="angularjs/pay.js"></script>
+</head>
+<body ng-app="pay" ng-controller="pay">
+
+<div id="box"></div>
+
+<% include /include/altheader %>
+<div class="cent-box">
+	<div class="cent-box-header">
+		<img role="presentation" width="250" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute; top:-47px;left:95px" alt="" src="https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" id="gh-logo">
+		</br>
+		<h2 class="sub-title"></h2>
+	</div>
+
+	<div class="cont-main clearfix">
+		<div class="index-tab">
+			<div class="index-slide-nav">
+
+			</div>
+		</div>
+
+    <div class="button">
+				<div class="alert alert-danger" ng-hide="invalid_cardnum">
+						<strong>Card Number must 16 digits</strong>
+				</div>
+		</div>
+
+		<div class="login form">
+			<div class="group">
+				<div class="group-ipt email">
+					<input type="text" name="cardNum" id="cardNum" class="ipt" placeholder="Credit Card Number: 16 digits" maxlength="16" ng-model="cardNum" required>
+        </div>
+			</div>
+		</div>
+
+
+
+		<div class="button">
+			<button type="submit" class="login-btn register-btn" id="button" ng-click="pay();" value="Login">Pay</button>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<p>Ebay</p>
+	<p>EbayApp Cmpe273 Lab1</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Ebay - User</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/register-login.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="user" ng-controller="user">
+	<div id="box"></div>
+
+	<!-- header nav-->
+	<% include /include/header %>
+
+	<!-- buy history -->
+	<div class="logo-box">
+		<img role="presentation" width="250" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute;" alt="" src="https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" id="gh-logo">
+	</div>
+
+	<!-- user info -->
+  <div class="item-box">
+    <div class="container">
+      <div class="row">
+        <div class="speical-content">
+   
+						<h3 class="text-special-default"><strong>User Profile: </strong></h3>
+						<div style="width:80%">
+	            <h3 class="text-special-default"><strong>User Name: </strong><%= uinfo.firstname %> <%= uinfo.lastname %></h3>
+	            <h3 class="text-special-default"><strong>Contract: </strong><%= uinfo.email %></h3>
+	            <h3 class="text-special-default"><strong>Location: </strong><%= uinfo.location %></h3>
+						</div>
+   
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

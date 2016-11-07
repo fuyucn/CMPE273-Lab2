@@ -1,0 +1,112 @@
+@import url('//cdn.gbtags.com/twitter-bootstrap/3.2.0/css/bootstrap.css');
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.item-box{
+	width: 100%;
+	vertical-align: middle;
+	white-space: normal;
+	margin: 0 auto;
+	position: absolute;
+	z-index: 2;
+	left:0%;
+	top:12%;
+}
+
+.logo-box{
+	width: 100px;
+	height: 100px;
+	vertical-align: middle;
+	white-space: normal;
+	margin: 0 auto;
+	position: absolute;
+	z-index: 9;
+	left: 50%;
+	margin-left: -60px;
+	top:-4.5%;
+}
+
+.item-box .item{
+	margin: 0 auto;
+	position: absolute;
+	z-index: 2;
+}
+
+.item-box .item-hide-details{
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;    /* Opera */
+	text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+}
+
+@import url('//cdn.gbtags.com/twitter-bootstrap/3.2.0/css/bootstrap.css');
+
+body{
+  font-family: 'microsoft yahei',Arial,sans-serif;
+  color: #898989;
+
+}
+
+.shape{
+	border-style: solid; border-width: 0 80px 80px 0; float:right; height: 0px; width: 0px;
+	-ms-transform:rotate(360deg); /* IE 9 */
+	-o-transform: rotate(360deg);  /* Opera 10.5 */
+	-webkit-transform:rotate(360deg); /* Safari and Chrome */
+	transform:rotate(360deg);
+}
+
+.speical{
+	background:#fff; border:1px solid #ddd; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); margin: 15px 0; overflow:hidden;
+}
+
+.speical-default{
+  border: 1px solid #d9534f;
+}
+
+.speical-itemlists{
+  border: 1px solid #0f88eb;
+}
+
+.speical-itembg{
+  border: 0px solid #d9534f;
+}
+
+.shape-text{
+	color:#fff; font-size:14px; position:relative; right:-45px; top:2px; white-space: nowrap;
+	-ms-transform:rotate(45deg); /* IE 9 */
+	-o-transform: rotate(45deg);  /* Opera 10.5 */
+	-webkit-transform:rotate(45deg); /* Safari and Chrome */
+	transform:rotate(45deg);
+}
+
+
+.text-special-default{
+  color:#d9534f;
+}
+
+.speical-content{
+	padding:0 20px 10px;
+}
+
+.text-special-price{
+  color:#d9534f;
+  float:right;
+
+}
+
+.header-box{
+	width:80%;
+	vertical-align: middle;
+	white-space: normal;
+	margin: 0 auto;
+	position: absolute;
+	z-index: 2;
+
+}

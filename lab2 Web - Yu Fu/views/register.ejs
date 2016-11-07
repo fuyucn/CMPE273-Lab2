@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ebay -- Register</title>
+<link rel="stylesheet" type="text/css" href="./stylesheets/register-login.css">
+<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="/angularjs/register.js"></script>
+</head>
+<body ng-app="register" ng-controller="register">
+	<div id="box"></div>
+
+	<% include /include/altheader %>
+	<div class="cent-box register-box" >
+		<div class="cent-box-header">
+			<img role="presentation" width="250" height="200" style="clip:rect(47px, 118px, 95px, 0px); position:absolute; top:-47px;left:95px" alt="" src="https://ir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" id="gh-logo">
+			</br><h2 class="sub-title"></h2>
+		</div>
+
+		<div class="cont-main clearfix">
+			<div class="index-tab">
+				<div class="index-slide-nav">
+					<a href="/login">Login</a>
+					<a href="/register" class="active">Register</a>
+					<div class="slide-bar slide-bar1"></div>
+				</div>
+			</div>
+			<form>
+			<div class="login form">
+				<div class="group">
+					<div class="group-ipt email">
+						<input type="email" name="email" id="email" class="ipt" placeholder="Email: " ng-model="username" required>
+					</div>
+					<div class="group-ipt password">
+						<input type="password" name="password" id="password" class="ipt" placeholder="Password: " ng-model="password" required>
+					</div>
+					<div class="group-ipt user">
+						<input type="text" name="firstname" id="firstname" class="ipt" placeholder="First Name: " ng-model="firstname" required>
+						<input type="text" name="lastname" id="lastname" class="ipt" placeholder="Last Name: " ng-model="lastname" required>
+						<input type="text" name="lastname" id="lastname" class="ipt" placeholder="location: " ng-model="location" required>
+					</div>
+				</div>
+			</div>
+
+			<div class="button">
+				<div class="alert alert-danger" ng-hide="invalid_reg">
+						<strong>Unkown Error</strong>
+				</div>
+				<div class="alert alert-danger" ng-hide="invalid_email">
+						<strong>User existed</strong>
+				</div>
+				<div class="alert alert-danger" ng-hide="invalid_user">
+						<strong>username cannot be empty</strong>
+				</div>
+
+				<div class="alert alert-danger" ng-hide="invalid_pw">
+						<strong>Password cannot be empty</strong>
+				</div>
+
+				<div class="alert alert-danger" ng-hide="invalid_fname">
+						<strong>Firstname cannot be empty</strong>
+				</div>
+
+				<div class="alert alert-danger" ng-hide="invalid_lname">
+						<strong>Lastname cannot be empty</strong>
+				</div>
+				<div class="alert alert-danger" ng-hide="invalid_loc">
+						<strong>Location cannot be empty</strong>
+				</div>
+
+
+
+			</div>
+
+				<button type="submit" class="login-btn register-btn" id="button" ng-click="submit();">Register</button>
+			</form>
+		</div>			
+	</div>
+
+
+
+
+	<div class="footer">
+		<p>Ebay</p>
+		<p>EbayApp Cmpe273 Lab1</p>
+	</div>
+
+	<div class="modal fade" id="myModal" ng-model="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					Register Successful
+				</div>
+				<div class="modal-footer">	
+					<a href="/"><button type="button" class="btn btn-primary">Home</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
